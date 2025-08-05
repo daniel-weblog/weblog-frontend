@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: debug secret
-        run: echo "VERCEL_TOKEN is ${env.VERCEL_TOKEN}"
+        run: echo "VERCEL_TOKEN is ${{env.VERCEL_TOKEN}}"
       
       - name: deploy to vercel
         run: |
