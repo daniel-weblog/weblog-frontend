@@ -1,25 +1,25 @@
-# name: frontend-ci deploy vercel
+name: frontend-ci deploy vercel
 
-# on: 
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: checkout code
-#         uses: actions/checkout@v3
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
       
-#       - name: use Node.js 
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: '18'
+      - name: use Node.js 
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
       
-#       - name: install dependencies
-#         run: npm ci
+      - name: install dependencies
+        run: npm ci
       
-#       - name: build project
-#         run: npm run build
+      - name: build project
+        run: npm run build
