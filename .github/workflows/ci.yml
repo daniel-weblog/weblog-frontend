@@ -1,39 +1,25 @@
-name: frontend-ci deploy vercel
+# name: frontend-ci deploy vercel
 
-on: 
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+# on: 
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
   
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v3
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: checkout code
+#         uses: actions/checkout@v3
       
-      - name: use Node.js 
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+#       - name: use Node.js 
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '18'
       
-      - name: install dependencies
-        run: npm ci
+#       - name: install dependencies
+#         run: npm ci
       
-      - name: build project
-        run: npm run build
-
-      - name: debug secret
-        run: echo "VERCEL_TOKEN is ${{env.VERCEL_TOKEN}}"
-      
-      - name: deploy to vercel
-        run: |
-            npm install -g vercel
-            vercel deploy --prod \
-              --token "${{ env.VERCEL_TOKEN }}" \
-              --confirm \
-              --project "${{ env.VERCEL_PROJECT_ID }}"
+#       - name: build project
+#         run: npm run build
